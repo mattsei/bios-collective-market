@@ -1,21 +1,33 @@
 <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
-      <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
-    </a>
+  <nav class="level">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bulma.io">
+        <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+      </a>
 
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-end">
-    <a class="navbar-item">
-      <%= link_to 'Login', new_user_session_path %>
-    </a>  
-    <a class="navbar-item">
-      <%= link_to 'Sign Up', new_user_registration_path %>
-    </a>  
-  </div>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+ 
+        <a class="navbar-item">
+          <%= link_to products_path, class: "link is-info" do %>
+            <span>Store</span>
+          <% end %>
+        <a/>
+        <a class="navbar-item">
+          <%= link_to 'Store', products_path %>
+        <a/>
+        <a class="navbar-item">
+          <%= link_to 'Login', new_user_session_path %>
+        <a/>
+        <a class="navbar-item">
+          <%= link_to 'Sign Up', new_user_registration_path %>
+        </a>
+
+    </div>
+  </nav>
 </nav>
