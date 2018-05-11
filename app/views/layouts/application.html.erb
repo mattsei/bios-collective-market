@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="has-navbar-fixed-top">
   <head>
-    <title>BiosCollectiveMarket</title>
+    <title>BIOS Collective</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -32,6 +32,9 @@
             <% if signed_in? %>
             <a class="navbar-item">
               <%= link_to current_user.email, user_profile_path %>
+            </a>
+            <a class="navbar-item">
+              <%= link_to 'Dashboard', user_profile_path if current_user.has_role? :bcmember %>
             </a>
             <a class="navbar-item">
               <%= link_to('Logout', destroy_user_session_path, :method => 'delete') %>
