@@ -1,5 +1,5 @@
 <nav class="navbar is-black is-fixed-top" role="navigation" aria-label="main navigation">
-      <nav class="level">
+      <%# <nav class="level"> %>
         <div class="navbar-brand">
           <%= link_to root_path, class: "navbar-item" do %>
             <img src="biosmenu.png" alt="BIOS Collective" width="112" height="28">
@@ -12,29 +12,33 @@
           </a>
         </div>
         <div class="navbar-menu">
-          <a class="navbar-item">
-            <%= link_to products_path, class: "link is-info" do %>
-              <span>Store</span>
-            <% end %>
-          <a/>
-          <% if signed_in? %>
-            <a class="navbar-item">
-              <%= link_to current_user.email, user_profile_path %>
-            </a>
-            <a class="navbar-item">
-              <%= link_to 'Dashboard', dashboard_path if current_user.has_role? :bcmember %>
-            </a>
-            <a class="navbar-item">
-              <%= link_to('Logout', destroy_user_session_path, :method => 'delete') %>
-            </a>
-          <% else %>
-            <a class="navbar-item">
-              <%= link_to 'Login', new_user_session_path %>
-            <a/>
-            <a class="navbar-item">
-              <%= link_to 'Sign Up', new_user_registration_path %>
-            </a>
-          <% end %>
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="field is-grouped">
+                <p class="control">
+                  <%= link_to "Store", products_path, class: "link is-info" %>
+                </p>
+                <% if signed_in? %>
+                <p class="control">
+                  <%= link_to current_user.email, user_profile_path %>
+                </p>
+                <p class="control">
+                  <%= link_to 'Dashboard', dashboard_path if current_user.has_role? :bcmember %>
+                </p>
+                <p class="control">
+                  <%= link_to('Logout', destroy_user_session_path, :method => 'delete') %>
+                </p>
+                <% else %>
+                <p class="control">
+                  <%= link_to 'Login', new_user_session_path %>
+                </p>
+                <p class="control">
+                  <%= link_to 'Sign Up', new_user_registration_path %>
+                </p>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
-      </nav>
+      <%# </nav> %>
     </nav>
