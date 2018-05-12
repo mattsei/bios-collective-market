@@ -1,2 +1,178 @@
-<h1>Dashboard#index</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Member Dashboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <!-- Bulma Version 0.7.1-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+  <link rel="stylesheet" type="text/css" href="../css/admin.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="columns">
+      <div class="column is-3">
+        <aside class="menu">
+          <p class="menu-label">
+            General
+          </p>
+          <ul class="menu-list">
+            <li>
+              <a class="is-active">Dashboard</a>
+            </li>
+          </ul>
+          <p class="menu-label">
+            Administration
+          </p>
+          <ul class="menu-list">
+            <li>
+              <a>Store Settings</a>
+            </li>
+            <li>
+              <a>Account Settings</a>
+            </li>
+            <li>
+              <a>Manage Your Products</a>
+              <ul>
+                <li>
+                  <a>View Products</a>
+                </li>
+                <li>
+                  <a>List Product</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p class="menu-label">
+            Transactions
+          </p>
+          <ul class="menu-list">
+            <li>
+              <a>Orders</a>
+            </li>
+            <li>
+              <a>Payments</a>
+            </li>
+            <li>
+              <a>History</a>
+            </li>
+          </ul>
+        </aside>
+      </div>
+      <div class="column is-9">
+        <section class="hero is-info welcome is-small">
+          <div class="hero-body">
+            <div class="container">
+              <h1 class="title">
+                Hello, <%= current_user.email %>.
+              </h1>
+              <h2 class="subtitle">
+                Welcome to your BIOS Collective Store!
+              </h2>
+            </div>
+          </div>
+        </section>
+        <section class="info-tiles">
+          <div class="tile is-ancestor has-text-centered">
+            <div class="tile is-parent">
+              <article class="tile is-child box">
+                <p class="title">0</p>
+                <p class="subtitle">Products</p>
+              </article>
+            </div>
+            <div class="tile is-parent">
+              <article class="tile is-child box">
+                <p class="title">0</p>
+                <p class="subtitle">Sales</p>
+              </article>
+            </div>
+            <div class="tile is-parent">
+              <article class="tile is-child box">
+                <p class="title">0</p>
+                <p class="subtitle">Open Orders</p>
+              </article>
+            </div>
+            <div class="tile is-parent">
+              <article class="tile is-child box">
+                <p class="title">0</p>
+                <p class="subtitle">Messages</p>
+              </article>
+            </div>
+          </div>
+        </section>
+        <div class="columns">
+          <div class="column is-6">
+            <div class="card events-card">
+              <header class="card-header">
+                <p class="card-header-title">
+                  Your Products
+                </p>
+                <a href="#" class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </a>
+              </header>
+              <div class="card-table">
+                <div class="content">
+                  <table class="table is-fullwidth is-striped">
+                    <tbody>
+                      <tr>
+                        <td width="5%">
+                          <i class="fa fa-bell-o"></i>
+                        </td>
+                        <td>Lorum ipsum dolem aire</td>
+                        <td>
+                          <a class="button is-small is-primary" href="#">Action</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <a href="#" class="card-footer-item">View All</a>
+              </footer>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title">
+                  Inventory Search
+                </p>
+                <a href="#" class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </a>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  <div class="control has-icons-left has-icons-right">
+                    <input class="input is-large" type="text" placeholder="">
+                    <span class="icon is-medium is-left">
+                      <i class="fa fa-search"></i>
+                    </span>
+                    <span class="icon is-medium is-right">
+                      <i class="fa fa-check"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script async type="text/javascript" src="../js/bulma.js"></script>
+</body>
+
+</html>

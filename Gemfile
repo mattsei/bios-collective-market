@@ -52,7 +52,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Auth
 gem 'devise', '~> 4.2'
 gem 'rolify', '~> 5.2'
-gem 'authority', '~> 3.3'
+# gem 'authority', '~> 3.3'
 
 gem 'bulma-rails', '~> 0.7.1'
 

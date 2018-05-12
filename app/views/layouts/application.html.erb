@@ -9,50 +9,17 @@
   </head>
 
   <body>
-    <nav class="navbar is-black is-fixed-top" role="navigation" aria-label="main navigation">
-      <nav class="level">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="#">
-            <img src="biosmenu.png" alt="BIOS Collective" width="112" height="28">
-          </a>
-
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-        <div class="navbar-menu">
-    
-            <a class="navbar-item">
-              <%= link_to products_path, class: "link is-info" do %>
-                <span>Store</span>
-              <% end %>
-            <a/>
-            <% if signed_in? %>
-            <a class="navbar-item">
-              <%= link_to current_user.email, user_profile_path %>
-            </a>
-            <a class="navbar-item">
-              <%= link_to 'Dashboard', user_profile_path if current_user.has_role? :bcmember %>
-            </a>
-            <a class="navbar-item">
-              <%= link_to('Logout', destroy_user_session_path, :method => 'delete') %>
-            </a>
-            <% else %>
-            <a class="navbar-item">
-              <%= link_to 'Login', new_user_session_path %>
-            <a/>
-            <a class="navbar-item">
-              <%= link_to 'Sign Up', new_user_registration_path %>
-            </a>
-            <% end %>
-
-        </div>
-      </nav>
-    </nav>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <%= render 'layouts/navbar' %>
+    <% if flash[:notice] %>
+      <div class="notification is-primary gobal-notification">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="notification is-danger global-notification">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
