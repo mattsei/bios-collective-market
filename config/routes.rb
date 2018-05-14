@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+  resources :orders
   # get 'dashboard/index'
 
   devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   
   resources :users
-  resources :products
+  resources :products do
+    resources :orders
+  end
   resources :profiles
 
   get "home/index"

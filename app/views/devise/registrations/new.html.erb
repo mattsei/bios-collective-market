@@ -9,8 +9,53 @@
   </div>
 
   <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autocomplete: "off" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autocomplete: "email" %>
+  </div>
+
+  <div class="fields">
+    <%= f.fields_for :address do |a| %>
+      <div class="field">
+        <label class="label">Street Address</label>
+        <div class="control">
+          <%= a.text_field :street_address, id: :street_address, class:"input", type:"text" %>
+        </div>  
+      </div>
+      <div class="field">
+        <label class="label">City</label>
+        <div class="control">
+          <%= a.text_field :city, id: :city, class:"input", type:"text" %>
+        </div>  
+      </div>
+      <div class="field">
+        <label class="label">State</label>
+        <div class="control">
+          <%= a.text_field :state, id: :state, class:"input", type:"text" %>
+        </div>  
+      </div>
+      <div class="field">
+        <label class="label">Postcode</label>
+        <div class="control">
+          <%= a.text_field :postcode, id: :postcode, class:"input", type:"text" %>
+        </div>  
+      </div>
+      <div class="field">
+        <label class="label">Country</label>
+        <div class="control">
+          <%= a.text_field :country, id: :country, class:"input", type:"text" %>
+        </div>  
+      </div>
+    <% end %>
   </div>
 
   <div class="field">

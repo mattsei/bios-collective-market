@@ -10,14 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180512080656) do
+ActiveRecord::Schema.define(version: 20180514102520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "buyer_id"
+    t.integer "seller_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "products", force: :cascade do |t|
     t.string "name"
-    t.integer "product_id"
     t.decimal "price"
     t.integer "stock"
     t.string "owner"
@@ -56,6 +64,9 @@ ActiveRecord::Schema.define(version: 20180512080656) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
+    t.string "first_name"
+    t.string "last_name"
+    t.hstore "address"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -57,3 +57,5 @@ gem 'rolify', '~> 5.2'
 gem 'bulma-rails', '~> 0.7.1'
 
 gem 'bcrypt', '~> 3.1.7', platform: :ruby
+
+gem 'stripe'

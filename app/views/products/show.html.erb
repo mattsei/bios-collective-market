@@ -7,7 +7,7 @@
 
 <p>
   <strong>Product:</strong>
-  <%= @product.product_id %>
+  <%= @product.id %>
 </p>
 
 <p>
@@ -29,6 +29,8 @@
   <strong>Description:</strong>
   <%= @product.description %>
 </p>
+
+<%= link_to 'Buy Now', new_product_order_path(@product) %>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
