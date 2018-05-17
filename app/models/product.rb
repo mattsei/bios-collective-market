@@ -4,5 +4,5 @@ class Product < ApplicationRecord
   has_many :orders
 
   validates :name, :description, :price, presence: true
-  validates :price, numericality: { greater_than: 0 }
+  validates :price, numericality: true, format: { with: /\A\$?[0-9]+\.?[0-9]?[0-9]?\z/, message: "Must be a dollar amount"}
 end

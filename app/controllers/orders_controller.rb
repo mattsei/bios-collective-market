@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  # before_action :set_amount
 
   # GET /orders
   # GET /orders.json
@@ -28,7 +29,9 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @product = Product.find(params[:product_id])
+    @amount = (@product.price * 100).floor
     @seller = @product.user
+   
 
     @order.product_id = @product.id
     @order.buyer_id = current_user.id
@@ -43,6 +46,45 @@ class OrdersController < ApplicationController
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
+
+  customer = nil
+  if current_user.stripe_customer_id.present?
+    customer = Stripe::Customer.retrieve(current_user.stripe_customer_id)
+  else
+    customer = Stripe::Customer.create(
+      :email => current_user.email,
+      :source => params[:stripeToken],
+      :shipping => {
+        :address => {
+          :line1 => current_user.address['street_address'],
+          :city => current_user.address['city'],
+          :state => current_user.address['state'],
+          :postal_code => current_user.address['postcode'],
+          :country => current_user.address['country'],
+        },
+        :name => current_user.first_name + " " + current_user.last_name,
+      }
+    )
+  end
+
+    charge = Stripe::Charge.create(
+      :customer => customer.id,
+      :amount => @amount, #in cents
+      :description => @product.name,
+      :currency => 'aud'
+    )
+
+    current_user.update_attributes(stripe_customer_id: customer.id)
+    # rescue Stripe::CardError => e
+    #   flash[:error] = e.message
+    #   redirect_to new_order_path
+    # end
+
+    # private
+    # def set_amount
+    #   @amount = product.price
+    # end
+
   end
 
   # PATCH/PUT /orders/1
@@ -79,4 +121,8 @@ class OrdersController < ApplicationController
     def order_params
       params.permit(:product_id, :buyer_id, :seller_id)
     end
+
+    # def set_amount
+    #   @amount = @product.price
+    # end
 end

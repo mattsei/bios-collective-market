@@ -15,25 +15,22 @@
   <div class="field">
     <label class="label"><%= form.label :name %></label>
     <div class="control">
-      <%= form.text_field :name, id: :product_name, class:"input", type:"text", placeholder:"Enter a username..." %>
+      <%= form.text_field :name, id: :product_name, class:"input", type:"text" %>
     </div>  
   </div>
 
   <div class="field">
     <label class="label"><%= form.label :price %></label>
     <div class="control">
-      <%= form.text_field :price, id: :product_price %>
+      <%= form.text_field :price, id: :product_price, class:"input" %>
     </div>
   </div>
 
   <div class="field">
-    <%= form.label :stock %>
-    <%= form.number_field :stock, id: :product_stock %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :product_description %>
+    <label class="label"><%= form.label :description %></label>
+    <div class="control">
+      <%= form.text_area :description, id: :product_description, class:"input" %>
+    </div>
   </div>
 
   <div class="actions">

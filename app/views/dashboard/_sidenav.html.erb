@@ -1,0 +1,48 @@
+<div class="column is-3">
+        <aside class="menu">
+          <p class="menu-label">
+            General
+          </p>
+          <ul class="menu-list">
+            <li>
+              <a class="is-active">Dashboard</a>
+            </li>
+          </ul>
+          <p class="menu-label">
+            Administration
+          </p>
+          <ul class="menu-list">
+            <li>
+              <a>Store Settings</a>
+            </li>
+            <li>
+              <%= link_to 'Account Settings', user_profile_path %>
+            </li>
+            <li>
+              <a>Manage Your Products</a>
+              <ul>
+                <li>
+                  <a>View Products</a>
+                </li>
+                <li>
+                  <%= link_to 'List Product', new_product_path %>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p class="menu-label">
+            Transactions
+          </p>
+          <ul class="menu-list">
+            <li>
+              <a>Orders</a>
+            </li>
+            <li>
+              <a>Payments</a>
+            </li>
+            <li>
+              <a>History</a>
+            </li>
+          </ul>
+        </aside>
+      </div>

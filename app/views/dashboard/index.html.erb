@@ -17,54 +17,7 @@
 
   <div class="container">
     <div class="columns">
-      <div class="column is-3">
-        <aside class="menu">
-          <p class="menu-label">
-            General
-          </p>
-          <ul class="menu-list">
-            <li>
-              <a class="is-active">Dashboard</a>
-            </li>
-          </ul>
-          <p class="menu-label">
-            Administration
-          </p>
-          <ul class="menu-list">
-            <li>
-              <a>Store Settings</a>
-            </li>
-            <li>
-              <a>Account Settings</a>
-            </li>
-            <li>
-              <a>Manage Your Products</a>
-              <ul>
-                <li>
-                  <a>View Products</a>
-                </li>
-                <li>
-                  <a>List Product</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <p class="menu-label">
-            Transactions
-          </p>
-          <ul class="menu-list">
-            <li>
-              <a>Orders</a>
-            </li>
-            <li>
-              <a>Payments</a>
-            </li>
-            <li>
-              <a>History</a>
-            </li>
-          </ul>
-        </aside>
-      </div>
+      <%= render 'dashboard/sidenav' %>
       <div class="column is-9">
         <section class="hero is-info welcome is-small">
           <div class="hero-body">
@@ -120,8 +73,8 @@
                 </a>
               </header>
               <div class="card-table">
-                <div class="content">
-                  <table class="table is-fullwidth is-striped">
+                <div class="table-container">
+                  <table class="table is-fullwidth is-striped is-hoverable">
                     <tbody>
                       <% @products.each do |product| %>
                       <tr>
@@ -129,8 +82,12 @@
                           <i class="fa fa-bell-o"></i>
                         </td>
                         <td><%=  link_to product.name, product %></td>
-                        <td width="10%">
-                          <a class="button is-small is-primary" href="#">Action</a>
+                        <td>
+                          <div class="buttons has-addons is-pulled-right">
+                          <%= link_to 'View', product, class: "button is-small" %>
+                          <%= link_to 'Edit', edit_product_path(product), class: "button is-small" %>
+                          <%= link_to 'Delete', product, method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-small" %>
+                          </div>
                         </td>
                       </tr>
                       <% end %>

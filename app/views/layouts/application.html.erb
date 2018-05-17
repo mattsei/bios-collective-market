@@ -3,9 +3,10 @@
   <head>
     <title>BIOS Collective</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://js.stripe.com/v3/"></script>
+    <%= tag :meta, :name => "stripe-key", :content => STRIPE_API_PUBLIC_KEY %>
   </head>
 
   <body>

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :orders
   end
   resources :profiles
+  resources :charges
 
   get "home/index"
   # get 'market', to: => 'products#index', as: => 'market'
