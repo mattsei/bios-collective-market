@@ -59,3 +59,5 @@ gem 'bulma-rails', '~> 0.7.1'
 gem 'bcrypt', '~> 3.1.7', platform: :ruby
 
 gem 'stripe'
+
+gem 'carrierwave', '~> 1.2', '>= 1.2.2'
