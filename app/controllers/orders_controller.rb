@@ -3,6 +3,8 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   # before_action :set_amount
 
+  after_action :send_email, only: [:create]
+
   # GET /orders
   # GET /orders.json
   def index
@@ -31,6 +33,7 @@ class OrdersController < ApplicationController
     @product = Product.find(params[:product_id])
     @amount = (@product.price * 100).floor
     @seller = @product.user
+
    
 
     @order.product_id = @product.id
@@ -39,6 +42,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+        # OrderMailer.send_order_email(@user).deliver
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
@@ -125,4 +129,8 @@ class OrdersController < ApplicationController
     # def set_amount
     #   @amount = @product.price
     # end
+
+    def send_email
+      OrderMailer.send_order_email(current_user).deliver
+    end
 end
