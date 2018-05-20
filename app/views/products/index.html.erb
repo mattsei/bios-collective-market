@@ -1,15 +1,52 @@
 <div class="container">
-  <section class="hero is-primary">
+  <section class="hero is-black">
     <div class="hero-body">
       <div class="container has-text-centered">
         <h1 class="title">
-          Hero title
+          BIOS Collective Market
         </h1>
-        <h2 class="subtitle">
-          Hero subtitle
-        </h2>
       </div>
     </div>
+  </section>
+
+  <section>
+  <div class="columns is-mobile is-centered">
+  <nav class="level">
+  <%= form_tag(products_path, method: :get) do %>
+    <div class="field is-horizontal">
+    <div class="level-item">
+      <div class="field-label is-normal">
+        <label class="label"><%= label_tag 'product_name', 'Name:' %></label>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control">
+          <%= text_field_tag 'product_name', nil, class: 'input is-small' %>
+          </div>
+        </div>
+      </div>
+    </div>
+      &emsp;
+      <div class="level-item">
+      <div class="field-label is-normal">
+        <label class="label"><%= label_tag 'price', 'Price:' %></label>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control">
+          <%= text_field_tag 'price', nil, class: 'input is-small' %>
+          </div>
+        </div>
+      </div>
+      </div>
+      &emsp;
+      <div class="level-item">
+      <%= submit_tag "Filter", class: 'button is-small' %>
+      </div>
+    </div>
+    <% end %>
+  </nav>
+  </div>
   </section>
 
   <%# product cards %>
@@ -26,15 +63,15 @@
           <div class="card-content">
             <div class="media">
               <div class="media-content">
-                <p class="title is-4"><%=  link_to product.name, product %></p>
-                <p class="subtitle is-6"><%= product.price %></p>
+                <p class="title is-5"><%=  link_to product.name, product %></p>
+                <p class="subtitle is-6">$<%= product.price %></p>
               </div>
             </div>
 
             <div class="content">
               <%= product.description %>
               <br>
-              <a><%= product.user.username %></a>
+              <a>Created by <%= product.user.username %></a>
             </div>
           </div>
         </div>

@@ -1,31 +1,30 @@
+<div class="container">
+<div class="columns is-centered">
+<div class="column is-6">
 
+<div class="card">
+  <div class="card-image">
+    <figure class="image">
+      <%= image_tag @product.product_image %>
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-content">
+        <p class="title is-4"><%= @product.name %></p>
+        <p class="subtitle is-6">$<%= @product.price %></p>
+      </div>
+    </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
-
-<p>
-  <strong>Product:</strong>
-  <%= @product.id %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
-
-<p>
-  <strong>Owner:</strong>
-  <%= @product.owner %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-
-<%= link_to 'Buy Now', new_product_order_path(@product), class: 'button is-primary', data: {no_turbolink: true} %>
-
-
-<%= link_to 'Back', products_path, class: 'button is-primary' %>
+    <div class="content">
+      <%= @product.description %>
+      <br>
+      Created by <%= @product.user.username %>
+    </div>
+    <%= link_to 'Buy Now', new_product_order_path(@product), class: 'button is-black', data: {no_turbolink: true} %>
+    <%= link_to 'Back', products_path, class: 'button is-black' %>
+  </div>
+</div>
+</div>
+</div>
+</div>

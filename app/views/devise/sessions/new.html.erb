@@ -1,26 +1,35 @@
-<h2>Log in</h2>
+<div class="container">
+<div class="columns is-centered">
+<div class="column is-3">
+<h2 class="title has-text-centered">Log in</h2>
+<br>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <label class="label"><%= f.label :email %></label>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input", type:"text" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <label class="label"><%= f.label :password %></label>
+    <%= f.password_field :password, autocomplete: "off", class:"input", type:"text" %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
     <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <label class="checkbox">
+        <%= f.check_box :remember_me, type:"checkbox" %>
+        Remember me
+     </label>
     </div>
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class:"button" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+</div>
+</div>

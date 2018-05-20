@@ -14,6 +14,9 @@
  *= require_self
  */
 
+ $card-color: transparent;
+ $card-background-color: transparent;
+
 @import "bulma";
 
 .navbar-brand .title {
@@ -48,4 +51,60 @@
 
 .help {
   font-size: x-small;
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
+html {
+  background-color: black;
+}
+
+label {
+  color: white,
+}
+
+a {
+  color: lightgray;
+}
+
+a:visited {
+  color: white;
+}
+
+.menu-label {
+  color: white;
+  text-decoration: underline;
+}
+
+.label {
+  color: white;
+}
+
+.title {
+  color: white;
+}
+
+.subtitle {
+  color: white;
+}
+
+.content {
+  color: white;
+  font-size: 12px;
+}
+
+.box {
+  background-color: transparent;
+}
+
+.card-header-title {
+  color: white;
+}
+
+.table {
+  color: transparent;
+  background-color: transparent;
 }
