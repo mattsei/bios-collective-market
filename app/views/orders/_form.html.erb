@@ -1,3 +1,6 @@
+<div class="container">
+<div class="columns is-centered">
+<div class="column is-4">
 <%= form_with(model: [@product, @order], url: product_orders_path, local: true, id: "payment-form") do |form| %>
   <% if order.errors.any? %>
     <div id="error_explanation">
@@ -11,7 +14,10 @@
   <% end %>
 
   <div class="form-row">
-    <label for="card-element">
+    <label><%= @product.name %></label>
+    <label>$<%= @product.price %></label>
+    <br>
+    <label for="card-element" class="label">
       Credit or debit card
     </label>
     <div id="card-element">
@@ -21,13 +27,15 @@
     <!-- Used to display form errors -->
     <div id="card-errors"></div>
   </div>
-
-
-
+  <br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"button", value:"Submit" %>&ensp;<%= link_to 'Back', product_orders_path, class:"button"%>
   </div>
 <% end %>
+
+</div>
+</div>
+</div>
 
 <script type="text/javascript">
 

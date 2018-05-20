@@ -29,12 +29,12 @@
   <div class="field">
     <label class="label"><%= form.label :description %></label>
     <div class="control">
-      <%= form.text_area :description, id: :product_description, class:"input" %>
+      <%= form.text_area :description, id: :product_description, class:"textarea", type:"text" %>
     </div>
   </div>
 
   <div class="field">
-    <%= form.label :product_image %><br>
+   <label class="label"><%= form.label :product_image %></label>
     <%= form.file_field :product_image %>
     <% if form.object.product_image? %>
       <%= image_tag form.object.product_image %>
@@ -44,6 +44,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"button"%>
   </div>
 <% end %>

@@ -7,6 +7,9 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    filtering_params(params).each do |key, value|
+      @products = @products.public_send(key, value) if value.present?
+    end
   end
 
   # GET /products/1
@@ -80,5 +83,9 @@ class ProductsController < ApplicationController
       if current_user != @product.user
         redirect_to root_url, alert: "Sorry, this product does not belong to you"
       end
+    end
+
+    def filtering_params(params)
+      params.slice(:product_name, :price)
     end
 end
