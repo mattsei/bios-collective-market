@@ -1,5 +1,5 @@
 # README
-#overview
+# Overview
 
 1. Summary
 2. Installation
@@ -15,9 +15,10 @@
 --------------------
 
 Link: https://bcmarket.herokuapp.com/
+
 *NOTE: Heroku app utilises Stripe test keys, will not process actual payments - all content is for demonstrative purposes only.*
 
-##1. Summary
+## 1. Summary
 This app was designed as part of the CoderAcademy assignment to build a two-sided marketplace. 
 
 *Consider this an MVP until this noticed is removed.*
@@ -80,12 +81,10 @@ Configuration - you will not have an ENV file as this has been ignored through G
 
 --------------------
 ## 4. User Stories
-[Trello User Stories](https://trello.com/b/9KO5NAm5/bios-collective)
 ![User stories for the whole application](app/assets/images/user_stories.png)
 
 --------------------
 ## 5. Wireframing
-[Balsamiq Wireframes](https://balsamiq.cloud/s3bdhqd/piftvve)
 ![This is the Wireframe](app/assets/images/wireframe.png)
 
 --------------------
@@ -95,7 +94,6 @@ Configuration - you will not have an ENV file as this has been ignored through G
 
 --------------------
 ## 7. Entity Relationship Diagram
-[Lucidchart ERD](https://www.lucidchart.com/invitations/accept/7a5b00e2-fd10-4093-ad56-4b9433b31e51)
 ![This is the ERD](app/assets/images/erd.png)
 
 --------------------
